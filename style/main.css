@@ -51,6 +51,7 @@ body {
 .wrapper .main {
   color: #eee;
   background-color: #1d1d1f;
+  padding-bottom: 30px;
 }
 
 .wrapper .main .main__title {
