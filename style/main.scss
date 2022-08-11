@@ -1,5 +1,6 @@
-$colorAccent: #ff7352;
 $colorMain: #eee;
+$colorAccent: #ff7352;
+$colorElements: #8a8a8a;
 $backgroundElements: #1a1a1a;
 @mixin border-line ($property) {
     #{$property}: 1px solid #383838;
@@ -129,7 +130,7 @@ body {
                         display: flex;
 
                         .main__content-link {
-                            border: 1px solid #8a8a8a;
+                            border: 1px solid $colorElements;
                             margin-right: 10px;
                             text-decoration: none;
                             color: $colorMain;
@@ -138,7 +139,7 @@ body {
                             text-align: center;
                             position: relative;
                             overflow: hidden;
-                            transition: box-shadow 300ms ease-in, border-color 300ms ease-in;
+                            transition: border-color 300ms ease-in;
 
                             &:after {
                                 background: #fff;
@@ -186,7 +187,7 @@ body {
                 margin-right: 5px;
 
                 .footer__icon {
-                    fill: #8a8a8a;
+                    fill: $colorElements;
                     transition: fill 300ms ease-in-out, filter 300ms ease-in-out;
     
                     &:hover {
@@ -201,6 +202,8 @@ body {
             
             .footer-item {
                 line-height: 40px;
+                padding-left: 5px;
+                border-left: 1px solid $colorMain;
             }
         }
     }
