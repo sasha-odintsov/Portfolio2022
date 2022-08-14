@@ -1,7 +1,6 @@
 $colorMain: #eee;
 $colorAccent: #ff7352;
 $colorElements: #8a8a8a;
-$backgroundElements: #1a1a1a;
 @mixin border-line ($property) {
     #{$property}: 1px solid #383838;
 }
@@ -13,7 +12,7 @@ html {
 body {
     margin: 0;
     font-size: 1rem;
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Almarai', sans-serif;
 }
 
 .wrapper-content {
@@ -22,45 +21,84 @@ body {
 }
 
 .wrapper {
-    background: $backgroundElements;
+    background: #1d1d1f;
 
     // ** header ** // 
     .header{
-        .header__title {
-            color: $colorMain; 
-            margin: 0; 
-            font-size: 1.2rem;
-            padding: 20px 0;
-            text-align: end;
-            font-weight: normal;
+        min-height: 100vh;
+        
+        .header__primary-wrap {
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            padding: 50px 0;
+
+            .header__heading-wrap {
+                letter-spacing: 2px;
+                
+                .header__heading {
+                    font-size: 2.8rem;
+                    margin: 0 0 50px 0;
+                    font-weight: bold;
+                }
+                .header__heading-dscr {
+                    color: $colorAccent;
+                    margin: 0;
+                    font-weight: normal;
+                    font-size: 1.3rem;
+                }
+            }
+            .header__title {
+                margin: 0; 
+                font-size: 1.2rem;
+                padding: 10px 0;
+                text-align: end;
+                font-weight: normal;
+                border: 1px solid #fff;
+                width: 200px;
+                text-align: center;
+                height: fit-content;
+            }
         }
-        .header__heading-wrap {
+        
+        // ** header img ** //
+        .header__img {
             background: url(../img/head-g.jpg);
             background-size: cover;
-            background-position: 50% 30%;
+            background-position: 70% 30%;
             background-repeat: no-repeat;
-            padding: 200px 0;
-            color: #fff;
+            height: 55vh;
+            display: flex;
+            align-items: flex-end;
             
-            .header__heading {
-                font-size: 2rem;
-                margin: 0;
-                font-weight: bold;
+            .header__img-icons {
+                padding-bottom: 30px;
+                
+                .footer__link {
+                    text-decoration: none;
+                    margin-right: 5px;
+    
+                    .footer__icon {
+                        fill: $colorElements;
+                        transition: fill 300ms ease-in-out, filter 300ms ease-in-out;
+        
+                        &:hover {
+                            fill: $colorMain;
+                            filter: drop-shadow(0px 1px 3px rgba(#fff, .4));
+                        }
+                        &:active {
+                            transform: scale(.95);
+                        }
+                    }
+                }
+                
             }
-            .header__heading-dscr {
-                color: $colorAccent;
-                margin: 0;
-                font-weight: normal;
-                font-size: 1.2rem;
-            }
-            
         }
     }
 
     // ** main ** //
     .main {
         color: $colorMain;
-        background-color: #1d1d1f;
         padding-bottom: 30px;
 
         // ** main title **//
@@ -68,17 +106,31 @@ body {
             margin: 0;
             padding: 40px 0 30px 0;
             font-size: 1.4rem;
+            width: 40%;
+            @include border-line(border-bottom);
         }
-
+        
         // ** main containt blocks ** //
         .main__content-wrap {
-            @include border-line(border-top);
-            padding: 30px 0;
+            padding: 50px 0;
+            position: relative;
 
+            &::after {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                left: 30%;
+                width: 40%;
+                text-align: center;
+                @include border-line(border-bottom);
+            }
+            &:last-child::after {
+                border: none;
+            }
             .main__content-item {
                 display: flex;
                 padding: 20px;
-                background-color: $backgroundElements;
+                background-color: #252525;
                 border-radius: 10px;
 
                 // ** containt img ** //
@@ -175,37 +227,12 @@ body {
     // ** footer ** //
     .footer {
         padding: 20px 0;
-        background: $backgroundElements;
         color: $colorMain;
         font-size: 1rem;
-
-        .footer__primary-wrap {
-            text-align: end;
-            
-            .footer__link {
-                text-decoration: none;
-                margin-right: 5px;
-
-                .footer__icon {
-                    fill: $colorElements;
-                    transition: fill 300ms ease-in-out, filter 300ms ease-in-out;
-    
-                    &:hover {
-                        fill: $colorMain;
-                        filter: drop-shadow(0px 1px 3px rgba(#fff, .4));
-                    }
-                    &:active {
-                        transform: scale(.95);
-                    }
-                }
-            }
-            
-            .footer-item {
-                line-height: 40px;
-                padding-left: 5px;
-                border-left: 1px solid $colorMain;
-            }
-        }
+        text-align: center;
+        @include border-line(border-top);
+        width: 30%;
+        margin: 40px auto 0 auto;
     }
 }
 
@@ -230,11 +257,6 @@ body {
 }
 @media screen and (max-width: 768px) {
     .wrapper {
-        .header {
-            .header__heading-wrap {
-                background-position: 60% 30%;
-            }
-        }
         .main {
             .main__content-wrap {
                 .main__content-item {
@@ -258,9 +280,10 @@ body {
     }
     .wrapper {
         .header {
-            .header__heading-wrap {
-                background-position: 70% 30%;
-                padding: 150px 0;
+            .header__primary-wrap {
+                .header__title {
+                    width: 100px;
+                }
             }
         }
     }
