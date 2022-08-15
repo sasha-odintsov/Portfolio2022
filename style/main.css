@@ -261,6 +261,28 @@ body {
   margin: 40px auto 0 auto;
 }
 
+.wrapper #scroll-btn {
+  color: #383838;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  font-size: 2rem;
+  padding: 5px 15px;
+  background: none;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  border: 1px solid #383838;
+  border-radius: 10px;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: none;
+}
+
+.wrapper #scroll-btn:hover {
+  color: #eee;
+  border-color: #eee;
+}
+
 @media screen and (max-width: 1200px) {
   .wrapper-content {
     width: 80%;
@@ -271,6 +293,10 @@ body {
   .wrapper .main .main__content-wrap .main__content-item .main__content-img-wrap {
     max-width: 300px;
     min-width: 300px;
+  }
+  .wrapper #scroll-btn {
+    bottom: 20px;
+    right: 20px;
   }
 }
 
@@ -284,6 +310,10 @@ body {
   .wrapper .main .main__content-wrap .main__content-item .main__content-dscr-wrap {
     padding: 10px 0 0 0;
   }
+  .wrapper #scroll-btn {
+    bottom: 10px;
+    right: 10px;
+  }
 }
 
 @media screen and (max-width: 499px) {
@@ -292,6 +322,9 @@ body {
   }
   .wrapper .header .header__primary-wrap .header__title {
     width: 100px;
+  }
+  .wrapper #scroll-btn {
+    border: none;
   }
 }
 /*# sourceMappingURL=main.css.map */
