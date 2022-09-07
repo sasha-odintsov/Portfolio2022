@@ -74,11 +74,11 @@ body {
             .header__img-icons {
                 padding-bottom: 30px;
                 
-                .footer__link {
+                .header__link {
                     text-decoration: none;
                     margin-right: 5px;
     
-                    .footer__icon {
+                    .header__icon {
                         fill: $colorElements;
                         transition: fill 300ms ease-in-out, filter 300ms ease-in-out;
         
